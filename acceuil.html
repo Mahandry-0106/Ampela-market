@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ampela Market</title>
+    <link rel="stylesheet" href="acceuil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-background">
+            <img src="Photos/Ampela1.png" alt="Image 1">
+            <img src="Photos/ampela2.png" alt="Image 2">
+            <img src="Photos/ampela3.png" alt="Image 3">
+            <img src="Photos/ampela4.png" alt="Image 4">
+            <!-- DUPLICATION POUR UNE BOUCLE FLUIDE -->
+            <img src="Photos/Ampela1.png" alt="Image 1 clone">
+            <img src="Photos/ampela2.png" alt="Image 2 clone">
+            <img src="Photos/ampela3.png" alt="Image 3 clone">
+            <img src="Photos/ampela4.png" alt="Image 4 clone">
+        </div>
+        <div class="header-overlay">
+            <div class="header-top">
+                <div class="logo">
+                    <img src="Photos/Logo Ampela Market (1).png" alt="Ampela Market Logo">
+                    <span>Ampela Market</span>
+                </div>
+                <div class="user-actions">
+                    <a href="#" class="login" id="login-link">Se connecter | S'inscrire</a>
+                    <a href="#" class="sell-button">Vendre</a>
+                </div>
+            </div>
+            <div class="cart">
+                <a href="#"><i class="fas fa-shopping-cart"></i> Mon panier</a>
+            </div>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Rechercher un produit ou un format">
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links">
+            <a href="#">Accueil</a>
+            <a href="#" class="nav-link">Catégories
+                <div class="dropdown-menu">
+                    <div class="dropdown-columns">
+                        <div class="dropdown-column">
+                            <h3>Artisanat & Mode</h3>
+                            <p>Vêtements traditionnels et modernes</p>
+                            <p>Bijoux et accessoires</p>
+                            <p>Sacs et maroquinerie</p>
+                            <h3>Produits alimentaires & Agroalimentaire</h3>
+                            <p>Produits locaux</p>
+                            <p>Produits transformés</p>
+                            <h3>Maison & Décoration</h3>
+                            <p>Objets de décoration artisanale</p>
+                            <p>Vannerie et ustensiles en matériaux naturels</p>
+                            <p>Mobilier en bois et en rotin</p>
+                        </div>
+                        <div class="dropdown-column">
+                            <h3>Cosmétiques & Bien-être</h3>
+                            <p>Produits de beauté naturels</p>
+                            <p>Huiles essentielles et savons artisanaux</p>
+                            <h3>Tech & Innovation</h3>
+                            <p>Équipements électroniques</p>
+                            <p>Matériel pour l’entrepreneuriat</p>
+                            <p>Énergie et connectivité</p>
+                            <h3>Trésors de nos campagnes</h3>
+                            <p>Produits agricoles et agroalimentaires</p>
+                            <p>Artisanat rural</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="nav-link">Se former
+                <div class="dropdown-menu">
+                    <h3>Entrepreneuriat & Gestion</h3>
+                    <p>Marketing & Vente</p>
+                    <p>Numérique & E-commerce</p>
+                    <p>Production & Qualité</p>
+                    <p>Développement personnel</p>
+                </div>
+            </a>
+            <a href="#" class="nav-link">Forum
+                <div class="dropdown-menu">
+                    <h3>Questions & Conseils</h3>
+                    <p>Partage d’expériences</p>
+                    <p>Annonces & Opportunités</p>
+                    <p>Demandes et offres de collaboration</p>
+                    <p>Support & Assistance</p>
+                </div>
+            </a>
+            <a href="#" class="nav-link">Vente assistée
+                <div class="dropdown-menu">
+                    <h3>Comment fonctionne la vente assistée ?</h3>
+                    <p>Trouver un agent digital</p>
+                    <p>Déposer un produit à vendre</p>
+                    <p>Suivi des ventes et paiements</p>
+                    <p>Conseils pour mieux vendre</p>
+                </div>
+            </a>
+            <a href="#">Annonces</a>
+            <a href="#">Services</a>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <section class="main-section">
+        <div class="main-image">
+            <img src="Photos/ampela3.png" alt="Market Image">
+        </div>
+        <div class="main-text">
+            <div class="line"></div> <!-- Première ligne blanche -->
+            <p>Une plateforme simple et sécurisée pour permettre aux femmes de vendre leurs produits, développer leur activité et toucher plus de clients.</p>
+            <div class="line"></div> <!-- Ligne blanche entre les paragraphes -->
+            <p>Sekhatra sotsy azo antoka ho an'ny vehivavy mivarotra, mandrahara, ahafahana mivaroatra, mampitombo ny fandraharahana ary manaraka mpanjifa maro kokoa.</p>
+            <div class="line"></div> <!-- Troisième ligne blanche avant "À PROPOS" -->
+            <button>À PROPOS</button>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section">
+        <h2>Fil d’actu</h2>
+        <div class="news-bar">
+            <div class="news-carousel">
+                <div class="carousel-arrow left" onclick="moveCarousel('left')"><span></span></div>
+                <div class="news-item" id="item1">
+                    <div class="header">
+                        <i class="fas fa-user"></i>
+                        <p>@nomdentreprise</p>
+                    </div>
+                    <img src="Photos/ampela5.png" alt="Product 1">
+                    <p>Panier artisanal</p>
+                    <p class="price">Prix 25000 Ar</p>
+                </div>
+                <div class="news-item" id="item2">
+                    <div class="header">
+                        <i class="fas fa-user"></i>
+                        <p>@nomdentreprise</p>
+                    </div>
+                    <img src="Photos/ampela6.png" alt="Product 2">
+                    <p>Décoration colorée</p>
+                    <p class="price">Prix 15000 Ar</p>
+                </div>
+                <div class="news-item" id="item3">
+                    <div class="header">
+                        <i class="fas fa-user"></i>
+                        <p>@nomdentreprise</p>
+                    </div>
+                    <img src="Photos/ampela7.png" alt="Product 3">
+                    <p>Huile essentielle</p>
+                    <p class="price">Prix 30000 Ar</p>
+                </div>
+                <div class="carousel-arrow right" onclick="moveCarousel('right')"><span></span></div>
+            </div>
+        </div>
+        <div class="separator"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-column">
+            <h3>Aide</h3>
+            <ul>
+                <li><a href="#">Comment vendre ?</a></li>
+                <li><a href="#">Vérification de l'article</a></li>
+                <li><a href="#">Tableau de bord</a></li>
+                <li><a href="#">Conditions générales d'utilisation</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>FAQ</h3>
+            <ul>
+                <li><a href="#">Sécurité</a></li>
+                <li><a href="#">Paiement</a></li>
+                <li><a href="#">Livraison</a></li>
+                <li><a href="#">Commerce et sécurité</a></li>
+            </ul>
+        </div>
+        <div class="footer-logo">
+            <img src="Photos/Logo Ampela Market (1).png" alt="Ampela Market Logo">
+            <span>Ampela Market</span>
+        </div>
+        <div class="footer-column">
+            <h3>Catégories</h3>
+            <ul>
+                <li><a href="#">Se former</a></li>
+                <li><a href="#">Forum</a></li>
+                <li><a href="#">Vente assistée</a></li>
+                <li><a href="#">Annonces</a></li>
+                <li><a href="#">Services</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>A propos</h3>
+            <ul>
+                <li><a href="#">Comment ça marche ?</a></li>
+                <li><a href="#">Conditions générales de vente (pour les entrepreneurs)</a></li>
+                <li><a href="#">Conditions générales pour les consommateurs</a></li>
+            </ul>
+            <h3>Nous contacter</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal pour la connexion/inscription -->
+    <div class="modal" id="auth-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">×</span>
+            <div class="auth-tabs">
+                <button class="tab active" id="login-tab">Se connecter</button>
+                <button class="tab" id="signup-tab">S'inscrire</button>
+            </div>
+            <!-- Formulaire de connexion -->
+            <form id="login-form" class="auth-form">
+                <h3>Se connecter</h3>
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Mot de passe</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit">Se connecter</button>
+            </form>
+            <!-- Formulaire d'inscription -->
+            <form id="signup-form" class="auth-form" style="display: none;">
+                <h3>S'inscrire</h3>
+                <div class="form-group">
+                    <label for="signup-name">Nom</label>
+                    <input type="text" id="signup-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Mot de passe</label>
+                    <input type="password" id="signup-password" name="password" required>
+                </div>
+                <button type="submit">S'inscrire</button>
+            </form>
+            <!-- Message de succès -->
+            <div class="success-message" id="success-message" style="display: none;">
+                <h3>Succès !</h3>
+                <p>Vous pouvez maintenant faire des achats.</p>
+                <button id="close-success">Continuer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lien vers le fichier JavaScript -->
+    <script src="ampela.js"></script>
+</body>
+</html>

@@ -1,0 +1,938 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+/* Réinitialisation des styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Style de base pour le body */
+body {
+    background-color: #F5E9D8; /* Beige clair */
+    color: #4A3C31; /* Marron foncé */
+}
+
+/* Style du header */
+header {
+    position: relative;
+    height: 180px; /* Hauteur du header */
+    overflow: hidden;
+}
+
+/* Overlay du header pour les éléments comme le logo et les actions */
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 2; /* Placer au-dessus de l'arrière-plan */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Fond animé du header avec des images défilantes */
+.header-background {
+    display: flex;
+    width: 200%; /* 2x la largeur normale car images dupliquées */
+    height: 100%;
+    animation: slide 20s linear infinite;
+}
+
+/* Style des images dans le fond du header */
+.header-background img {
+    width: 12.5%; /* 8 images (2 séries de 4) -> 100% / 8 = 12.5% */
+    height: 100%;
+    object-fit: cover;
+    filter: blur(3px);
+}
+
+/* Animation pour le défilement des images */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); } /* Fait défiler exactement 4 images */
+}
+
+/* Conteneur pour le logo et les actions utilisateur */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Style du logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+/* Style de l'image du logo */
+.logo img {
+    width: 50px; /* Taille réduite du logo */
+    margin-right: 10px; /* Espacement entre logo et texte */
+}
+
+/* Style du texte du logo */
+.logo span {
+    font-family: 'Dancing Script', cursive; /* Police manuscrite pour "Ampela Market" */
+    font-size: 24px;
+    color: #4A3C31; /* Marron foncé */
+}
+
+/* Conteneur pour les actions utilisateur (Se connecter, Vendre) */
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+/* Style des liens dans les actions utilisateur */
+.user-actions a {
+    text-decoration: none;
+    color: #4A3C31; /* Marron foncé */
+    font-weight: bold;
+    margin-left: 20px; /* Espacement entre les liens */
+}
+
+/* Style du bouton "Vendre" */
+.user-actions .sell-button {
+    background-color: #4A3C31; /* Marron foncé */
+    padding: 5px 15px;
+    border-radius: 0; /* Rectangle pointu */
+    color: #FFFFFF; /* Blanc */
+}
+
+/* Ajout d'une barre de séparation après "Se connecter" */
+.user-actions .login::after {
+    content: '|'; /* Barre de séparation */
+    color: #4A3C31; /* Marron foncé */
+    margin: 0 5px; /* Espacement autour de la barre */
+}
+
+/* Style du conteneur du panier */
+.cart {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: 50px; /* Alignement à droite */
+    margin-top: 10px; /* Espacement par rapport à header-top */
+    margin-bottom: 10px; /* Espacement avant la barre de recherche */
+}
+
+/* Style du lien "Mon panier" */
+.cart a {
+    text-decoration: none;
+    color: #4A3C31; /* Marron foncé */
+    font-weight: bold;
+}
+
+/* Style de l'icône du panier */
+.cart a i {
+    margin-right: 5px; /* Espace entre l'icône et le texte */
+    color: #4A3C31; /* Marron foncé */
+}
+
+/* Style de la barre de recherche */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF; /* Blanc */
+    border-radius: 20px; /* Coins arrondis */
+    padding: 10px 15px; /* Augmentation du padding */
+    width: 60%; /* Largeur augmentée */
+    margin: 0 auto; /* Centre horizontalement */
+    margin-top: 20px; /* Espacement par rapport au panier */
+}
+
+/* Style de l'icône de recherche */
+.search-bar i {
+    margin-right: 10px; /* Espace entre la loupe et l'input */
+    color: #4A3C31; /* Marron foncé */
+    font-size: 18px; /* Taille de la loupe */
+}
+
+/* Style de l'input de recherche */
+.search-bar input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 100%; /* Remplit l'espace restant */
+}
+
+/* Navigation */
+nav {
+    background-color: #4A3C31; /* Marron foncé */
+    padding: 10px 0;
+    position: relative; /* Permet de positionner les sous-menus */
+}
+
+/* Hamburger menu (visible sur mobile) */
+.hamburger {
+    display: none; /* Caché par défaut sur desktop */
+    font-size: 24px;
+    color: #FFFFFF;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Conteneur des liens de navigation */
+.nav-links {
+    display: flex;
+    justify-content: space-around; /* Répartit uniformément les liens */
+    align-items: center;
+    width: 100%; /* S'assure qu'il prend toute la largeur */
+    border-radius: 20px;
+}
+
+/* Style des liens de navigation */
+.nav-links a {
+    flex-grow: 1; /* Permet aux éléments de s'étirer uniformément */
+    text-align: center; /* Centrer le texte */
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px;
+}
+
+/* Style des liens avec sous-menus */
+.nav-link {
+    position: relative; /* Position relative pour que le sous-menu soit positionné par rapport au lien */
+}
+
+/* Style des sous-menus */
+.dropdown-menu {
+    display: none; /* Caché par défaut */
+    position: absolute;
+    top: 100%; /* Positionné juste en dessous du lien */
+    left: 50%;
+    transform: translateX(-50%); /* Centre le sous-menu par rapport au lien */
+    background-color: #F5E9D8; /* Même couleur que le fond du body */
+    padding: 20px;
+    width: 600px; /* Largeur augmentée pour accueillir deux colonnes */
+    z-index: 10; /* S'assure que le sous-menu est au-dessus des autres éléments */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet de profondeur */
+}
+
+/* Afficher le sous-menu au survol */
+.nav-link:hover .dropdown-menu {
+    display: block; /* Affiche le sous-menu au survol */
+}
+
+/* Style des titres dans les sous-menus */
+.dropdown-menu h3 {
+    font-size: 16px;
+    color: #4A3C31;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Style des paragraphes dans les sous-menus */
+.dropdown-menu p {
+    font-size: 14px;
+    color: #4A3C31;
+    margin-bottom: 5px;
+}
+
+/* Conteneur pour les colonnes dans le sous-menu de "Catégories" */
+.dropdown-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* Empêche les colonnes de passer à la ligne */
+    gap: 20px; /* Ajoute un espace entre les colonnes */
+}
+
+/* Style de chaque colonne */
+.dropdown-column {
+    flex: 1; /* Les colonnes prennent un espace égal */
+    min-width: 0; /* Évite que les colonnes ne débordent */
+}
+
+/* Main Section */
+.main-section {
+    display: flex;
+    padding: 30px;
+    align-items: center;
+    background-color: #D3B998; /* Marron doux */
+}
+
+/* Conteneur de l'image principale */
+.main-image {
+    width: 25%; /* Réduit la taille de l'image pour qu'elle ne soit pas trop grande */
+    text-align: center;
+}
+
+/* Image principale */
+.main-image img {
+    width: 80%; /* Prend 80% de la largeur du conteneur */
+    height: auto; /* Maintient les proportions de l'image */
+    border-radius: 150px 150px 0 0; /* Arrondir uniquement le haut de l'image */
+    object-fit: cover; /* Remplir l'image sans déformation, mais en gardant les proportions */
+}
+
+/* Conteneur du texte principal */
+.main-text {
+    width: 50%;
+    position: relative;
+    text-align: center; /* Centrage des paragraphes */
+    padding-left: 20%;
+    margin-top: -10%;
+}
+
+/* Ligne blanche décorative */
+.line {
+    height: 3px;
+    background-color: #FFFFFF; /* Blanc */
+    margin: 20px 0; /* Espacement autour des lignes */
+}
+
+/* Style des paragraphes dans la section principale */
+.main-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 20px 0; /* Espacement entre les paragraphes */
+    color: #4A3C31; /* Marron foncé */
+}
+
+/* Style du bouton "À PROPOS" */
+.main-text button {
+    background-color: #4A3C31; /* Marron foncé */
+    color: #FFFFFF; /* Blanc */
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px; /* Bouton en bas */
+}
+
+/* News Section */
+.news-section {
+    padding: 50px;
+    background-color: antiquewhite;
+}
+
+/* Titre de la section "Fil d’actu" */
+.news-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: left; /* Alignement à gauche */
+    color: #4A3C31; /* Marron foncé */
+}
+
+/* Conteneur du carrousel de nouvelles */
+.news-bar {
+    background-color: #FFFFFF; /* Blanc */
+    margin: 0 20px; /* Allongement du rectangle */
+    padding: 40px; /* Augmentation de la hauteur avec plus de padding */
+    border-radius: 10px; /* Coins arrondis */
+    min-height: 300px; /* Hauteur minimale augmentée */
+}
+
+/* Carrousel des nouvelles */
+.news-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Augmentation de l'espacement entre les éléments pour plus d'espace vertical */
+}
+
+/* Style des éléments du carrousel */
+.news-item {
+    width: 25%; /* Réduction de la largeur pour accentuer l'effet vertical */
+    background-color: #4A3C31; /* Marron foncé */
+    border: 1px solid #5C4033; /* Gris foncé pour la bordure */
+    border-radius: 20px; /* Coins arrondis */
+    padding: 20px;
+    text-align: center;
+    color: #FFFFFF; /* Blanc */
+}
+
+/* En-tête de chaque élément du carrousel */
+.news-item .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px; /* Espacement */
+}
+
+/* Icône dans l'en-tête des éléments du carrousel */
+.news-item i {
+    font-size: 24px;
+    margin-right: 10px; /* Espacement */
+    color: #FFFFFF; /* Blanc */
+}
+
+/* Image dans les éléments du carrousel */
+.news-item img {
+    width: 80%; /* Réduit légèrement la largeur pour conserver l'équilibre visuel */
+    height: 300px; /* Augmentation de la hauteur pour créer l'effet rectangle vertical */
+    object-fit: cover; /* S'assurer que l'image garde son ratio sans se déformer */
+    border-radius: 30px; /* Coins arrondis */
+    margin: 10px 0;
+}
+
+/* Paragraphes dans les éléments du carrousel */
+.news-item p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #FFFFFF; /* Blanc */
+}
+
+/* Prix dans les éléments du carrousel */
+.news-item p.price {
+    font-weight: bold;
+}
+
+/* Flèches du carrousel */
+.carousel-arrow {
+    width: 0; /* Supprime la largeur du rectangle */
+    height: 0; /* Supprime la hauteur du rectangle */
+    border: none; /* Enlève les bordures autour des flèches */
+    position: relative; /* Position pour la flèche */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Style des flèches (triangle) */
+.carousel-arrow::before {
+    content: ''; /* Création du triangle pour la flèche */
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 15px solid #5C4033; /* Flèche vers la droite */
+}
+
+/* Flèche gauche */
+.carousel-arrow.left::before {
+    left: 100%; /* Positionner la flèche vers la gauche */
+    transform: rotate(180deg); /* Inverser la flèche pour la direction gauche */
+}
+
+/* Flèche droite */
+.carousel-arrow.right::before {
+    right: 100%; /* Positionner la flèche vers la droite */
+}
+
+/* Cacher l'icône FontAwesome dans les flèches */
+.carousel-arrow i {
+    display: none; /* Suppression de l'icône FontAwesome */
+}
+
+/* Espacement pour la flèche gauche */
+.carousel-arrow.left {
+    margin-right: 10px; /* Espacement */
+}
+
+/* Espacement pour la flèche droite */
+.carousel-arrow.right {
+    margin-left: 10px; /* Espacement */
+}
+
+/* Séparateur après la section "Fil d’actu" */
+.separator {
+    margin-top: 5%;
+    height: 3px;
+    background-color: #FFFFFF; /* Blanc */
+}
+
+/* Footer */
+footer {
+    background-color: antiquewhite;
+    padding-top: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: #4A3C31; /* Marron foncé */
+}
+
+/* Colonnes du footer */
+.footer-column {
+    width: 20%;
+}
+
+/* Titres des colonnes du footer */
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #4A3C31; /* Marron foncé */
+}
+
+/* Listes dans les colonnes du footer */
+.footer-column ul {
+    list-style: none;
+}
+
+/* Éléments de liste dans les colonnes du footer */
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+/* Liens dans les colonnes du footer */
+.footer-column ul li a {
+    text-decoration: none;
+    color: #4A3C31; /* Marron foncé */
+}
+
+/* Logo dans le footer */
+.footer-logo {
+    text-align: center;
+    margin: 20px 0; /* Espacement */
+    display: flex;
+    flex-direction: column; /* Organise les éléments en colonne (logo en haut, texte en bas) */
+    align-items: center; /* Centre les éléments horizontalement */
+}
+
+/* Image du logo dans le footer */
+.footer-logo img {
+    width: 300px;
+    display: block; /* S'assure que l'image est centrée */
+    margin: 0 auto; /* Centre l'image horizontalement */
+}
+
+/* Style du texte "Ampela Market" dans le footer */
+.footer-logo span {
+    font-family: 'Dancing Script', cursive; /* Police manuscrite */
+    font-size: 24px;
+    color: #4A3C31; /* Marron foncé pour le texte du logo */
+    display: block; /* S'assure que le texte est sur une nouvelle ligne et centré */
+    margin-top: 10px; /* Espacement entre l'image et le texte */
+}
+
+/* Icônes sociales dans le footer */
+.footer-column .social-icons {
+    margin-top: 20px; /* Espacement */
+}
+
+/* Style des icônes sociales */
+.footer-column .social-icons a {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+/* Couleur de l'icône Facebook */
+.footer-column .social-icons a:nth-child(1) {
+    color: #FF4500; /* Orange pour Facebook */
+}
+
+/* Couleur de l'icône Instagram */
+.footer-column .social-icons a:nth-child(2) {
+    color: #E1306C; /* Rose pour Instagram */
+}
+
+/* Couleur de l'icône TikTok */
+.footer-column .social-icons a:nth-child(3) {
+    color: #00F; /* Bleu pour TikTok */
+}
+
+/* Styles pour le modal de connexion/inscription */
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    z-index: 100; /* Au-dessus de tout */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenu du modal */
+.modal-content {
+    background-color: #F5E9D8;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Bouton de fermeture du modal */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #4A3C31;
+}
+
+/* Onglets du modal (Se connecter/S'inscrire) */
+.auth-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Style des onglets */
+.tab {
+    flex: 1;
+    padding: 10px;
+    background-color: #D3B998;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #4A3C31;
+    text-align: center;
+}
+
+/* Style de l'onglet actif */
+.tab.active {
+    background-color: #4A3C31;
+    color: #FFFFFF;
+}
+
+/* Style des formulaires dans le modal */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Titre des formulaires */
+.auth-form h3 {
+    font-size: 20px;
+    color: #4A3C31;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Groupes de champs dans les formulaires */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Labels des champs */
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #4A3C31;
+    margin-bottom: 5px;
+}
+
+/* Champs de saisie */
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #4A3C31;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Bouton de soumission des formulaires */
+.auth-form button {
+    background-color: #4A3C31;
+    color: #FFFFFF;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Message de succès après soumission */
+.success-message {
+    text-align: center;
+}
+
+/* Titre du message de succès */
+.success-message h3 {
+    font-size: 20px;
+    color: #4A3C31;
+    margin-bottom: 10px;
+}
+
+/* Paragraphe du message de succès */
+.success-message p {
+    font-size: 16px;
+    color: #4A3C31;
+    margin-bottom: 20px;
+}
+
+/* Bouton pour fermer le message de succès */
+.success-message button {
+    background-color: #4A3C31;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+
+/* Tablette (768px - 1024px) */
+@media (max-width: 1024px) {
+    /* Header */
+    header {
+        height: 150px;
+    }
+
+    .logo img {
+        width: 40px;
+    }
+
+    .logo span {
+        font-size: 20px;
+    }
+
+    .search-bar {
+        width: 80%;
+    }
+
+    /* Navigation */
+    .dropdown-menu {
+        width: 500px;
+    }
+
+    /* Main Section */
+    .main-section {
+        flex-direction: row;
+        padding: 20px;
+    }
+
+    .main-image {
+        width: 30%;
+    }
+
+    .main-text {
+        width: 60%;
+        padding-left: 10%;
+        margin-top: 0;
+    }
+
+    .main-text p {
+        font-size: 16px;
+    }
+
+    /* News Section */
+    .news-section {
+        padding: 30px;
+    }
+
+    .news-item {
+        width: 30%;
+    }
+
+    .news-item img {
+        height: 250px;
+    }
+
+    /* Footer */
+    .footer-column {
+        width: 22%;
+    }
+
+    .footer-logo img {
+        width: 250px;
+    }
+}
+
+/* Mobile (moins de 768px) */
+@media (max-width: 768px) {
+    /* Header */
+    header {
+        height: 120px;
+    }
+
+    .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .logo img {
+        width: 35px;
+    }
+
+    .logo span {
+        font-size: 18px;
+    }
+
+    .user-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .user-actions a {
+        margin-left: 0;
+        margin-bottom: 5px;
+    }
+
+    .user-actions .login::after {
+        display: none;
+    }
+
+    .cart {
+        padding-right: 20px;
+    }
+
+    .search-bar {
+        width: 90%;
+        padding: 8px 10px;
+    }
+
+    .search-bar input {
+        font-size: 14px;
+    }
+
+    /* Navigation */
+    .hamburger {
+        display: block; /* Affiche le menu hamburger sur mobile */
+    }
+
+    .nav-links {
+        display: none; /* Cache les liens par défaut */
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background-color: #4A3C31;
+        border-radius: 0 0 10px 10px;
+        z-index: 10;
+    }
+
+    .nav-links.active {
+        display: flex; /* Affiche les liens quand le menu est actif */
+    }
+
+    .nav-links a {
+        padding: 15px;
+        border-bottom: 1px solid #FFFFFF;
+    }
+
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .dropdown-columns {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .dropdown-column {
+        width: 100%;
+    }
+
+    .nav-link:hover .dropdown-menu {
+        display: none; /* Désactive le survol sur mobile */
+    }
+
+    .nav-link.active .dropdown-menu {
+        display: block; /* Affiche le sous-menu quand le lien est actif */
+    }
+
+    /* Main Section */
+    .main-section {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .main-image {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .main-text {
+        width: 100%;
+        padding-left: 0;
+        margin-top: 0;
+    }
+
+    .main-text p {
+        font-size: 14px;
+    }
+
+    .main-text button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    /* News Section */
+    .news-section {
+        padding: 20px;
+    }
+
+    .news-bar {
+        padding: 20px;
+    }
+
+    .news-carousel {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .news-item {
+        width: 80%;
+    }
+
+    .news-item img {
+        height: 200px;
+    }
+
+    .carousel-arrow {
+        display: none; /* Cache les flèches sur mobile */
+    }
+
+    /* Logo dans le footer */
+.footer-logo {
+    text-align: center;
+    margin: 20px 0; /* Espacement */
+    display: flex;
+    flex-direction: column; /* Organise les éléments en colonne (logo en haut, texte en bas) */
+    align-items: flex-start; /* Aligne les éléments à gauche */
+    margin-left: 20px; /* Ajoute un décalage à gauche */
+}
+
+/* Image du logo dans le footer */
+.footer-logo img {
+    width: 300px;
+    display: block; /* S'assure que l'image est centrée */
+    margin: 0; /* Supprime la marge automatique pour permettre le décalage à gauche */
+}
+
+/* Style du texte "Ampela Market" dans le footer */
+.footer-logo span {
+    font-family: 'Dancing Script', cursive; /* Police manuscrite */
+    font-size: 24px;
+    color: #4A3C31; /* Marron foncé pour le texte du logo */
+    display: block; /* S'assure que le texte est sur une nouvelle ligne */
+    margin-top: 10px; /* Espacement entre l'image et le texte */
+}
+
+    /* Modal */
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .auth-form h3 {
+        font-size: 18px;
+    }
+
+    .form-group input {
+        font-size: 12px;
+    }
+
+    .auth-form button {
+        font-size: 14px;
+    }
+}
